@@ -12,5 +12,5 @@ WORKDIR /var/www
 
 COPY . /var/www
 
-RUN composer global require "fxp/composer-asset-plugin:*"
-RUN composer --prefer-dist install
+RUN sudo composer global require "fxp/composer-asset-plugin:*"
+RUN sudo composer --prefer-dist install
