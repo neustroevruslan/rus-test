@@ -13,10 +13,10 @@ WORKDIR /var/www
 
 COPY . /var/www
 
-RUN sudo composer global require "fxp/composer-asset-plugin:*"
-RUN sudo composer --prefer-dist install
-
 RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 USER docker
 CMD /bin/bash
+
+RUN sudo composer global require "fxp/composer-asset-plugin:*"
+RUN sudo composer --prefer-dist install
