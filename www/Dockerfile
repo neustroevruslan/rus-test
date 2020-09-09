@@ -12,7 +12,8 @@ WORKDIR /var/www
 
 COPY . /var/www
 
+RUN mkdir runtime
+RUN mkdir runtime/cache
+
 RUN composer global require "fxp/composer-asset-plugin:*"
 RUN composer install --prefer-source --no-interaction
-
-RUN mkdir runtime/cache
