@@ -1,8 +1,8 @@
 <h1>Тестовое задание InDriver</h1>
 <h2>Развертывание Docker-образа</h2>
 &#160git clone https://github.com/neustroevruslan/rus-test.git
-<br /> &#160 cd rus-test
-<br /> &#160 docker-compose up -d
+<br />&#160cd rus-test
+<br />&#160docker-compose up -d
 
 <h2>Методы</h2>
 &#160 http://localhost:1408/cars/
