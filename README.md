@@ -3,7 +3,7 @@ git clone https://github.com/neustroevruslan/rus-test.git
 </br >cd rus-test
 </br >docker-compose up -d
 </br >
-</br >http://localhost:1408
+</br ><a href="http://localhost:1408/">http://localhost:1408/</a>
 <h1>Функции</h1>
 For
 </br> - add a car in list "/car/add" 
