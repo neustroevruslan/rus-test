@@ -3,4 +3,4 @@ git clone https://github.com/neustroevruslan/rus-test.git
 </br >cd rus-test
 </br >docker-compose up
 </br >
-</br >localhost:1408
+</br >http://localhost:1408
