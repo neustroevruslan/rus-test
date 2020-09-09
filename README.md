@@ -4,13 +4,13 @@ git clone https://github.com/neustroevruslan/rus-test.git
 <br/>cd rus-test
 <br/>docker-compose up -d
 
-<br/>поднимется локальный сервер http://localhost:1408/
+<br/>поднимется локальный сервер http://localhost:1408
 
 
 <h2>Api</h2>
 
 <h3>Список Авто</h3>
-http://localhost:1408/cars/list/
+http://localhost:1408/cars/list
 
 <h5>Входящие параметры</h5>
 order (string) - id, name, year, color
