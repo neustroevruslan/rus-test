@@ -20,7 +20,7 @@ order (string) - id, name, year, color
 <h4>Добавление Авто</h4>
 /cars/add
 
-Входящие параметры
+<h5>Входящие параметры</h5>
 name (string)
 <br />year (string)
 <br />color (string)
@@ -28,11 +28,10 @@ name (string)
 <h4>Редактирование Авто</h4>
 /cars/update
 
-Входящие параметры
+<h5>Входящие параметры</h5>
 id (int)
 
 <h4>Удаление Авто</h4>
 /cars/delete
-
-Входящие параметры
+<h5>Входящие параметры</h5>
 id (int)
