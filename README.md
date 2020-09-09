@@ -6,10 +6,10 @@ git clone https://github.com/neustroevruslan/rus-test.git
 cd rus-test
 docker-compose up -d
 
-Запросы
+Методы
 http://localhost:1408/
 
-Список Авто
+<h4>Список Авто</h4>
 /cars/list
 
 Входящие параметры
