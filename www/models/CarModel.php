@@ -19,46 +19,30 @@ class CarModel extends Model
         return json_encode($res);
     }
 
-    public function update($name, $year, $color)
+    public function update($id, $name, $year, $color)
     {      
-        if (empty($name)) {
-            return 'Change car information "/car/update?name=carname&year=caryear&color=carcolor".';
-        }
-
-        $query = new Query;
-        $query
-            ->select('*')
-            ->from('cars')
-            ->where(['car_name'=>$name]);
-        $command = $query->createCommand();
-        $carExists = $command->queryAll();
-
-        if (empty($carExists)) {
-            return $this->error('Car no exists.');
-        }
-        if (!isset($year) && !isset($color)) {
-            return $this->error('There must be at least one value.');
-        }
-
-        $changeValue;
-
-        if (!isset($year)) {
-            $changeValue = ['car_color'=>$color];
-        } elseif (!isset($color)) {
-            $changeValue = ['car_year'=>$year];
-        } else {
-            $changeValue = ['car_year'=>$year, 'car_color'=>$color];
-        }
-
         Yii::$app->db
             ->createCommand()
-            ->update('cars', $changeValue, ['car_name'=>$name])
+            ->update('cars', 
+                [
+                    'name' => ':name', 
+                    'year' => ':year', 
+                    'color' => ':color',
+                ], 
+                'id = :id', 
+                [
+                    ':name' => $name,
+                    ':year' => $year,
+                    ':color' => $color,
+                    ':id' => $id,
+                ]
+            );
             ->execute();
         
         return $this->success();
     }
 
-    public function carList($order, $limit, $offset)
+    public function carList($order = "id", $limit = 25, $offset = 0)
     {        
         $query = new Query;
         $query
@@ -88,7 +72,7 @@ class CarModel extends Model
         $query
             ->select('*')
             ->from('cars')
-            ->where(['car_name'=>$name, 'car_year'=>$year, 'car_color'=>$color]);
+            ->where(['name'=>$name, 'year'=>$year, 'color'=>$color]);
         $command = $query->createCommand();
         $carExists = $command->queryAll();
 
@@ -98,7 +82,7 @@ class CarModel extends Model
 
         Yii::$app->db
             ->createCommand()
-            ->insert('cars', ['car_name'=>$name, 'car_year'=>$year, 'car_color'=>$color])
+            ->insert('cars', ['name'=>$name, 'year'=>$year, 'color'=>$color])
             ->execute();
 
         return $this->success();
@@ -114,7 +98,7 @@ class CarModel extends Model
         $query
             ->select('*')
             ->from('cars')
-            ->where(['car_name'=>$name]);
+            ->where(['name'=>$name]);
         $command = $query->createCommand();
         $carExists = $command->queryAll();
         
@@ -124,7 +108,7 @@ class CarModel extends Model
 
         Yii::$app->db
             ->createCommand()
-            ->delete('cars', ['car_name'=>$name])
+            ->delete('cars', ['name'=>$name])
             ->execute();
         
         return $this->success();
