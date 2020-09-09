@@ -5,10 +5,10 @@ git clone https://github.com/neustroevruslan/rus-test.git
 <br />docker-compose up -d
 
 <h2>Методы</h2>
-http://localhost:1408/
+http://localhost:1408/cars/
 
 <h3>Список Авто</h3>
-/cars/list
+/list
 
 <h5>Входящие параметры</h5>
 order (string) - id, name, year, color
@@ -16,7 +16,7 @@ order (string) - id, name, year, color
 <br />offset (int)
 
 <h3>Добавление Авто</h3>
-/cars/add
+/add
 
 <h5>Входящие параметры</h5>
 name (string)
@@ -24,12 +24,12 @@ name (string)
 <br />color (string)
 
 <h3>Редактирование Авто</h3>
-/cars/update
+/update
 
 <h5>Входящие параметры</h5>
 id (int)
 
 <h3>Удаление Авто</h3>
-/cars/delete
+/delete
 <h5>Входящие параметры</h5>
 id (int)
