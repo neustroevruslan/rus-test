@@ -1,35 +1,35 @@
 <h1>Тестовое задание InDriver</h1>
 <h2>Развертывание Docker-образа</h2>
-&#160 &#160git clone https://github.com/neustroevruslan/rus-test.git
-<br />&#160&#160cd rus-test
-<br />&#160&#160docker-compose up -d
+git clone https://github.com/neustroevruslan/rus-test.git
+<br />cd rus-test
+<br />docker-compose up -d
 
 <h2>Методы</h2>
-&#160 &#160 &#160 &#160http://localhost:1408/cars/
+http://localhost:1408/cars/
 
-&#160&#160<h3>Список Авто</h3>
-&#160&#160&#160&#160/list
+<h3>Список Авто</h3>
+/list
 
-&#160&#160<h5>Входящие параметры</h5>
-&#160&#160&#160&#160order (string) - id, name, year, color
-<br />&#160&#160&#160&#160limit (int)
-<br />&#160&#160&#160&#160offset (int)
+<h5>Входящие параметры</h5>
+order (string) - id, name, year, color
+<br />limit (int)
+<br />offset (int)
 
-&#160&#160<h3>Добавление Авто</h3>
-&#160&#160&#160&#160/add
+<h3>Добавление Авто</h3>
+/add
 
-&#160&#160<h5>Входящие параметры</h5>
-&#160&#160&#160&#160name (string)
-<br />&#160&#160&#160&#160year (string)
-<br />&#160&#160&#160&#160color (string)
+<h5>Входящие параметры</h5>
+name (string)
+<br />year (string)
+<br />color (string)
 
-&#160 &#160<h3>Редактирование Авто</h3>
-&#160 &#160 &#160 &#160/update
+<h3>Редактирование Авто</h3>
+/update
 
-&#160&#160<h5>Входящие параметры</h5>
-&#160&#160&#160&#160id (int)
+<h5>Входящие параметры</h5>
+id (int)
 
-&#160&#160<h3>Удаление Авто</h3>
-&#160&#160&#160&#160/delete
-&#160&#160<h5>Входящие параметры</h5>
-&#160&#160&#160&#160id (int)
+<h3>Удаление Авто</h3>
+/delete
+<h5>Входящие параметры</h5>
+id (int)
