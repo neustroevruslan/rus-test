@@ -1,15 +1,40 @@
-<h1>Запуск</h1>
+<h1>Тестовое задание InDriver</h1>
+<h2>Запуск среды</h2>
 git clone https://github.com/neustroevruslan/rus-test.git
-</br >cd rus-test
-</br >docker-compose up -d
-</br >
-</br ><a href="http://localhost:1408/">http://localhost:1408/</a>
-<h1>Методы</h1>
-</br> - add a car in list "/car/add" 
-</br> - delete a car from list "/car/delete"
-</br> - update a car information "/car/update"
-</br> - get car list "/car/list"
-</br>       options:
-</br>           ?limit=number
-</br>           ?limit=number&offset=number
-</br>           ?order=columnname
+<br/>cd rus-test
+<br/>docker-compose up -d
+
+<br/>поднимется локальный сервер http://localhost:1408
+
+
+<h2>Api</h2>
+
+<h3>Список Авто</h3>
+http://localhost:1408/cars/list
+
+<h5>Входящие параметры</h5>
+order (string) - id, name, year, color
+<br/>limit (int)
+<br/>offset (int)
+
+<h3>Добавление Авто</h3>
+http://localhost:1408/cars/add
+
+<h5>Входящие параметры</h5>
+name (string)
+<br/>year (int)
+<br/>color (string)
+
+<h3>Редактирование Авто</h3>
+http://localhost:1408/cars/update
+
+<h5>Входящие параметры</h5>
+id (int)
+<br/>name (string)
+<br/>year (int)
+<br/>color (string)
+
+<h3>Удаление Авто</h3>
+http://localhost:1408/cars/delete
+<h5>Входящие параметры</h5>
+id (int)
