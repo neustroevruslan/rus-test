@@ -7,9 +7,14 @@ use yii\db\Query;
 
 class CarModel extends Model
 {    
-    function success()
+    function success($data = null)
     {
-        $res = array(['status'=>'success']);
+        $res = ['status'=>'success'];
+
+        if (!empty($data)) {
+            $res['data'] = $data;
+        }
+
         return json_encode($res);
     }
 
@@ -19,34 +24,11 @@ class CarModel extends Model
         return json_encode($res);
     }
 
-    public function update($id, $name, $year, $color)
-    {      
-        Yii::$app->db
-            ->createCommand()
-            ->update('cars', 
-                [
-                    'name' => ':name', 
-                    'year' => ':year', 
-                    'color' => ':color',
-                ], 
-                'id = :id', 
-                [
-                    ':name' => $name,
-                    ':year' => $year,
-                    ':color' => $color,
-                    ':id' => $id,
-                ]
-            );
-            ->execute();
-        
-        return $this->success();
-    }
-
-    public function carList($order = "id", $limit = 25, $offset = 0)
+    public function carList($order = "", $limit = 25, $offset = 0)
     {        
         $query = new Query;
         $query
-            ->select('*')
+            ->select('id, name, year, color')
             ->from('cars')
             ->orderBy($order)
             ->limit($limit)
@@ -54,33 +36,19 @@ class CarModel extends Model
         $command = $query->createCommand();
         $carList = $command->queryAll();
 
-        if (empty($carList)) {
-            return $this->error('Car list is empty.');
-        }
-        
-        $res = array(['status'=>'success', 'carList'=>$carList]);
-        return json_encode($res);
+        return $this->success($carList);
     }
 
     public function add($name, $year, $color) 
     {
         if (empty($name) || empty($year) || empty($color)) {
-            return 'Add car in list "/car/add?name=carname&year=caryear&color=carcolor".';
+            return $this->error('All params are required');
+        }
+        if (!is_numeric($year)) {
+            return $this->error('Year must be numeric');
         }
 
-        $query = new Query;
-        $query
-            ->select('*')
-            ->from('cars')
-            ->where(['name'=>$name, 'year'=>$year, 'color'=>$color]);
-        $command = $query->createCommand();
-        $carExists = $command->queryAll();
-
-        if (!empty($carExists)) {
-            return $this->error('This car exists.');
-        }
-
-        Yii::$app->db
+        $query = Yii::$app->db
             ->createCommand()
             ->insert('cars', ['name'=>$name, 'year'=>$year, 'color'=>$color])
             ->execute();
@@ -88,29 +56,52 @@ class CarModel extends Model
         return $this->success();
     }
 
-    public function delete($name)
-    {
-        if (!isset($name)) {
-            return 'Remove a car from the list "/car/delete?name=carname"';
+    public function update($id, $name, $year, $color)
+    {      
+        if (empty($name) || empty($year) || empty($color)) {
+            return $this->error('All params are required');
+        }
+        if (!is_numeric($year)) {
+            return $this->error('Year must be numeric');
         }
 
-        $query = new Query;
-        $query
-            ->select('*')
-            ->from('cars')
-            ->where(['name'=>$name]);
-        $command = $query->createCommand();
-        $carExists = $command->queryAll();
+        if (empty($this->getCarById($id))) {
+            return $this->error('Car not found');
+        }
         
-        if (empty($carExists)) {
-            return $this->error('Car not exists.');
+        Yii::$app->db
+            ->createCommand()
+            ->update('cars', ['name' => $name, 'year' => $year, 'color' => $color], ["id" => $id])
+            ->execute();
+        
+        return $this->success();
+    }
+
+    public function delete($id)
+    {
+        if (empty($id)) {
+            return $this->error('id required');
         }
 
         Yii::$app->db
             ->createCommand()
-            ->delete('cars', ['name'=>$name])
+            ->delete('cars', ['id'=>$id])
             ->execute();
         
         return $this->success();
+    }
+
+    public function getCarById($id)
+    {
+        $query = new Query;
+        $query
+            ->select('id')
+            ->from('cars')
+            ->limit(1)
+            ->where(['id' => $id]);
+        $command = $query->createCommand();
+        $carExists = $command->queryAll();
+
+        return $carExists;
     }
 }

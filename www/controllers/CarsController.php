@@ -15,7 +15,7 @@ class CarsController extends Controller {
         ];
     }
 
-    public function actionIndex()
+    public function actionList()
     {
         $model = new CarModel;
         $request = Yii::$app->request;
@@ -24,17 +24,6 @@ class CarsController extends Controller {
         $offset = $request->get('offset');
 
         return $model->carList($order, $limit, $offset); 
-    }
-
-    public function actionGet()
-    {
-        $id = Yii::$app->request->get('id');
-
-        if (empty($id)) {
-            return "empty id";
-        }
-
-        return CarModel::findOne($id); 
     }
 
     public function actionAdd()
@@ -52,19 +41,20 @@ class CarsController extends Controller {
     {
         $model = new CarModel;
         $request = Yii::$app->request;
+        $id = $request->get('id');
         $name = $request->get('name');
         $year = $request->get('year');
         $color = $request->get('color');
 
-        return $model->update($name, $year, $color); 
+        return $model->update($id, $name, $year, $color); 
     }
 
     public function actionDelete()
     {
         $model = new CarModel;
         $request = Yii::$app->request;
-        $name = $request->get('name');
+        $id = $request->get('id');
 
-        return $model->delete($name); 
+        return $model->delete($id); 
     }
 }

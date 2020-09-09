@@ -18,6 +18,8 @@ services:
       dockerfile: ./Dockerfile
     links:
       - mysql
+    volumes: 
+      - ./www:/var/www
 
   mysql:
     build: 

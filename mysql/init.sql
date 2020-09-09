@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS cars (
     id INT NOT NULL AUTO_INCREMENT, 
-    name VARCHAR(45), 
-    year VARCHAR(45), 
+    name VARCHAR(45),
+    year INT(45),
     color VARCHAR(45),
     PRIMARY KEY(id)
 );

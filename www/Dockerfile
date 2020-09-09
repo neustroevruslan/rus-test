@@ -14,3 +14,5 @@ COPY . /var/www
 
 RUN composer global require "fxp/composer-asset-plugin:*"
 RUN composer install --prefer-source --no-interaction
+
+RUN mkdir runtime/cache
