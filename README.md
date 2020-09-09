@@ -12,26 +12,26 @@ http://localhost:1408/
 <h4>Список Авто</h4>
 /cars/list
 
-Входящие параметры
+<h5>Входящие параметры</h5>
 order (string) - id, name, year, color
-limit (int)
-offset (int)
+<br />limit (int)
+<br />offset (int)
 
-Добавление Авто
+<h4>Добавление Авто</h4>
 /cars/add
 
 Входящие параметры
 name (string)
-year (string)
-color (string)
+<br />year (string)
+<br />color (string)
 
-Редактирование Авто
+<h4>Редактирование Авто</h4>
 /cars/update
 
 Входящие параметры
 id (int)
 
-Удаление Авто
+<h4>Удаление Авто</h4>
 /cars/delete
 
 Входящие параметры
