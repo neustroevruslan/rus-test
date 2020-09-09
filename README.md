@@ -2,46 +2,37 @@
 
 Развертывание Docker-образа
 
-git clone 
-docker-compose up
+git clone https://github.com/neustroevruslan/rus-test.git
+cd rus-test
+docker-compose up -d
 
-https://www.getpostman.com/collections/e8b2eb773012a018ef0b
+Запросы
+http://localhost:1408/
 
-Запросы к API
 Список Авто
-http://127.0.0.1:62110/api/auto/v1/list
+/cars/list
 
-Ожидает параметры
-
-order (string) - name, year, year_desc
+Входящие параметры
+order (string) - id, name, year, color
 limit (int)
 offset (int)
+
 Добавление Авто
-http://127.0.0.1:62110/api/auto/v1/add
+/cars/add
 
-Ожидает параметры
-
+Входящие параметры
 name (string)
-year (int)
+year (string)
 color (string)
+
 Редактирование Авто
-http://127.0.0.1:62110/api/auto/v1/edit
+/cars/update
 
-Ожидает параметры
-
+Входящие параметры
 id (int)
-Объект data
-
-[
-
-name (string)
-year (int)
-color (string)
-]
 
 Удаление Авто
-http://127.0.0.1:62110/api/auto/v1/delete
+/cars/delete
 
-Ожидает параметры
-
-id (int) - ID авто в БД
+Входящие параметры
+id (int)
