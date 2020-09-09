@@ -1,15 +1,47 @@
-<h1>Запуск</h1>
-git clone https://github.com/neustroevruslan/rus-test.git
-</br >cd rus-test
-</br >docker-compose up -d
-</br >
-</br ><a href="http://localhost:1408/">http://localhost:1408/</a>
-<h1>Методы</h1>
-</br> - add a car in list "/car/add" 
-</br> - delete a car from list "/car/delete"
-</br> - update a car information "/car/update"
-</br> - get car list "/car/list"
-</br>       options:
-</br>           ?limit=number
-</br>           ?limit=number&offset=number
-</br>           ?order=columnname
+Тестовое задание InDriver
+
+Развертывание Docker-образа
+
+git clone 
+docker-compose up
+
+https://www.getpostman.com/collections/e8b2eb773012a018ef0b
+
+Запросы к API
+Список Авто
+http://127.0.0.1:62110/api/auto/v1/list
+
+Ожидает параметры
+
+order (string) - name, year, year_desc
+limit (int)
+offset (int)
+Добавление Авто
+http://127.0.0.1:62110/api/auto/v1/add
+
+Ожидает параметры
+
+name (string)
+year (int)
+color (string)
+Редактирование Авто
+http://127.0.0.1:62110/api/auto/v1/edit
+
+Ожидает параметры
+
+id (int)
+Объект data
+
+[
+
+name (string)
+year (int)
+color (string)
+]
+
+Удаление Авто
+http://127.0.0.1:62110/api/auto/v1/delete
+
+Ожидает параметры
+
+id (int) - ID авто в БД
