@@ -1,11 +1,11 @@
 <h1>Тестовое задание InDriver</h1>
 <h2>Развертывание Docker-образа</h2>
-&#160&#160git clone https://github.com/neustroevruslan/rus-test.git
+&#160 &#160git clone https://github.com/neustroevruslan/rus-test.git
 <br />&#160&#160cd rus-test
 <br />&#160&#160docker-compose up -d
 
 <h2>Методы</h2>
-&#160&#160&#160&#160http://localhost:1408/cars/
+&#160 &#160 &#160 &#160http://localhost:1408/cars/
 
 &#160&#160<h3>Список Авто</h3>
 &#160&#160&#160&#160/list
@@ -23,8 +23,8 @@
 <br />&#160&#160&#160&#160year (string)
 <br />&#160&#160&#160&#160color (string)
 
-&#160&#160<h3>Редактирование Авто</h3>
-&#160&#160&#160&#160/update
+&#160 &#160<h3>Редактирование Авто</h3>
+&#160 &#160 &#160 &#160/update
 
 &#160&#160<h5>Входящие параметры</h5>
 &#160&#160&#160&#160id (int)
