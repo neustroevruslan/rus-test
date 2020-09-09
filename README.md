@@ -1,6 +1,6 @@
 <h1>Запуск</h1>
 git clone https://github.com/neustroevruslan/rus-test.git
 </br >cd rus-test
-</br >docker-compose up
+</br >docker-compose up -d
 </br >
 </br >http://localhost:1408
