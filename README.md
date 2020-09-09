@@ -5,7 +5,7 @@ git clone https://github.com/neustroevruslan/rus-test.git
 </br >
 </br >http://localhost:1408
 <h1>Функции</h1>
-<h4>For</h4> 
+For
 </br> - add a car in list "/car/add" 
 </br> - delete a car from list "/car/delete"
 </br> - update a car information "/car/update"
